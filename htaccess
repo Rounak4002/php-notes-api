@@ -1,0 +1,9 @@
+# .htaccess (place in project root if serving with Apache and using pretty urls)
+RewriteEngine On
+# If the request is a file or directory, serve directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Otherwise forward to public/index.php
+RewriteRule ^ public/index.php [L,QSA]
